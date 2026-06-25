@@ -1,0 +1,25 @@
+# LOB to database mapping per environment.
+# DB_HOST and DB_PORT in .env are shared (both LOBs go through ProxySQL at sql.trustgate.salescode.ai:6033).
+# Per-LOB user/password override env vars — each LOB has its own ProxySQL user.
+# IMPORTANT: Keep this file out of git (contains credentials).
+
+environments:
+  demo:
+    lobs:
+      - id: itcvissfaindemo
+        label: "Vistaar"
+        database: db_itcvissfaindemo
+        user: trustgate_samarth_narayan_CVRu
+        password: "1^aP&&SpTG45Ur&J"
+
+      - id: hfcoedemo
+        label: "Heritage"
+        database: db_hfcoedemo
+        user: trustgate_samarth_narayan_TiQj
+        password: "n$G!eJ6Uf8yfQ%8@"
+
+  uat:
+    lobs: []
+
+  prod:
+    lobs: []

@@ -1,0 +1,568 @@
+features:
+  - name: DMS Invoice / Sales Sync
+    severity: critical
+    entries:
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-generatingDmsInvoice
+        description: ""
+      - domainName: supportedValues
+        domainType: UpdateSaleStatusStep-salesStatusMapping
+        description: ""
+      - domainName: sales
+        domainType: invoiceNumber
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-generatingDmsInvoicedOrder
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-updateSalesStatusDMS
+        description: ""
+      - domainName: Sales
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: supportedValues
+        domainType: BulkInvoiceStatusUpdateStep-salesStatusMapping
+        description: ""
+  - name: GRN / Stock Inward
+    severity: critical
+    entries:
+      - domainName: supportedValues
+        domainType: UpdateGRNStatusStep-grnStatusChangeOperation
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-insertGRNStatus
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-updateGRNStatus
+        description: ""
+  - name: Order Placement
+    severity: critical
+    entries:
+      - domainName: Order
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: orderAmountCompare
+        domainType: orderAmountCompare
+        description: ""
+      - domainName: OrderDetails
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: orderget
+        domainType: v3
+        description: ""
+      - domainName: supportedValues
+        domainType: OrderStatusUpdateStep-salesToOrderStatusMapping
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-deductStockAndSaveOrder
+        description: ""
+      - domainName: supportedValues
+        domainType: BulkOrderStatusUpdateStep-orderStatusMapping
+        description: ""
+      - domainName: Tax
+        domainType: Applicable
+        description: ""
+      - domainName: supportedValues
+        domainType: TransformOrderStep-HandlerFactory
+        description: ""
+  - name: DMS Portal Configuration
+    severity: high
+    entries:
+      - domainName: clientconfig
+        domainType: executive_kpi_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: executive_app_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesexecutive_kpi_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: catalogue_sorting_options
+        description: ""
+      - domainName: clientconfig
+        domainType: se_app_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: default_product_images
+        description: ""
+      - domainName: clientconfig
+        domainType: executive_specific_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: authservice_app_configuration
+        description: ""
+      - domainName: filters2
+        domainType: tab
+        description: ""
+      - domainName: clientconfig
+        domainType: multi_lingual_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: incentive_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: se_app_options_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: playground_config
+        description: ""
+      - domainName: clientconfig
+        domainType: loadout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesrep_day_summary_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: credit_note_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: attendance_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesexecutive_day_summary_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesman_app_options_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: print_invoice_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: se_day_summary_configuration
+        description: ""
+      - domainName: uiconfig
+        domainType: distributor
+        description: ""
+      - domainName: clientconfig
+        domainType: manager_app_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: outlet_mapping
+        description: ""
+      - domainName: clientconfig
+        domainType: se_specific_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesexecutive_specific_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesexecutive_kpi_v2_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: must_do_action_salesrep_aggregation_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesrep_kpi_v2_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: se_app_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: admin_app_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: executive_kpi_v2_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesexecutive_app_options_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: se_work_with_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesexecutive_app_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: distributor_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: filters_label_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: admin_app_feature_configuration
+        description: ""
+      - domainName: DeliveryPJP
+        domainType: queryConfig
+        description: ""
+      - domainName: clientconfig
+        domainType: dms_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: distributor_portal_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: admin_mdm_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: admin_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: admin_portal_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: admin_report_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: analytics_config
+        description: ""
+      - domainName: clientconfig
+        domainType: app_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: authentication_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: banner_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: bucket_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: catalogue_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: customer_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: error_logger_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: firebase_config
+        description: ""
+      - domainName: clientconfig
+        domainType: integration_panel_options
+        description: ""
+      - domainName: clientconfig
+        domainType: kpi_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: must_do_action_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: order_basket_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: order_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: order_return_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: outlet_activity_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: portal_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: projectadmin_mdm_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: projectadmin_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: projectadmin_portal_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: projectadmin_report_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: reportadmin_mdm_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: reportadmin_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: reportadmin_portal_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: reportadmin_report_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: retailer_app_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: retailer_app_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: retailer_app_options_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesrep_app_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesrep_app_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesrep_app_options_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesrep_kpi_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesrep_must_do_action_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: store_inventory_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: tab_filters
+        description: ""
+      - domainName: clientconfig
+        domainType: target_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: theme_configuration
+        description: ""
+      - domainName: couponPortal
+        domainType: isNewPromoEnabled
+        description: ""
+      - domainName: clientconfig
+        domainType: manager_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: executive_app_layout_configuration
+        description: ""
+      - domainName: DeliveryPJP
+        domainType: customQuery
+        description: ""
+      - domainName: DeliveryPJP
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: clientconfig
+        domainType: se_must_do_action_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: executive_day_summary_configuration
+        description: ""
+      - domainName: NewApprovalFlow
+        domainType: RequestConfig
+        description: ""
+      - domainName: clientconfig
+        domainType: se_kpi_v2_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: salesexecutive_app_feature_configuration
+        description: ""
+      - domainName: filters
+        domainType: tab
+        description: ""
+      - domainName: templates
+        domainType: lob-creation-automailer
+        description: ""
+      - domainName: mdm
+        domainType: kafka-details
+        description: ""
+      - domainName: RouteInfo
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: clientconfig
+        domainType: scheme_configuration
+        description: ""
+  - name: Authentication
+    severity: high
+    entries:
+      - domainName: ResourceAccessToken
+        domainType: ExpireInMilliSeconds
+        description: ""
+      - domainName: client
+        domainType: properties
+        description: ""
+      - domainName: jenkins
+        domainType: createxmlForMdmKafkaUploader
+        description: ""
+      - domainName: claims
+        domainType: claimId
+        description: ""
+      - domainName: otpverify
+        domainType: update_access_configuration
+        description: ""
+      - domainName: password
+        domainType: passwordComplexity
+        description: ""
+      - domainName: password
+        domainType: permission
+        description: ""
+  - name: Entity Enrichments
+    severity: high
+    entries:
+      - domainName: GenericEntity
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: MultiEntitySheet
+        domainType: MDMConfig
+        description: ""
+      - domainName: OutletDetails
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: supportedValues
+        domainType: EntityUtils-enrichments
+        description: ""
+      - domainName: User
+        domainType: DynamicUniqueKey
+        description: ""
+  - name: Sales Returns
+    severity: high
+    entries:
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-rejectSalesReturn
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-validateReturn
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-approveSalesReturn
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-approveSalesReturnWithoutInvoice
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-createReturn
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-createSalesReturn
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-createSalesReturnApp
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-editReturn
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-editSalesReturn
+        description: ""
+  - name: Order Loadout
+    severity: high
+    entries:
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-vanLoadout
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-invoiceLoadout
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-invoiceLoadoutUpdate
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-orderLoadout
+        description: ""
+      - domainName: supportedValues
+        domainType: SagaOrchestrator-orderLoadoutUpdate
+        description: ""
+  - name: Catalogue
+    severity: medium
+    entries:
+      - domainName: SFAProductDetails
+        domainType: CatalogueQuery
+        description: ""
+      - domainName: SFAProductMetaData
+        domainType: CatalogueQuery
+        description: ""
+      - domainName: FavoriteSku
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: OutletProductInfo
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: outletproductinfo
+        domainType: userDynamicQuery
+        description: ""
+      - domainName: ProductMetaData
+        domainType: CatalogueQuery
+        description: ""
+      - domainName: productdetails
+        domainType: apiquery
+        description: ""
+      - domainName: ProductMetaData
+        domainType: DynamicUniqueKey
+        description: ""
+  - name: Collection / Payments
+    severity: medium
+    entries:
+      - domainName: collection
+        domainType: collectionNumber
+        description: ""
+      - domainName: creditNote
+        domainType: creditNoteNumber
+        description: ""
+      - domainName: debitNote
+        domainType: debitNoteNumber
+        description: ""
+  - name: Stock Management
+    severity: medium
+    entries:
+      - domainName: batchcodekeys
+        domainType: product
+        description: ""
+      - domainName: splitkeys
+        domainType: ProductMetaData
+        description: ""
+      - domainName: Stock
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: stockConfig
+        domainType: stockAuditConfig
+        description: ""
+      - domainName: stockConfig
+        domainType: stockDepletionConfig
+        description: ""
+      - domainName: stockConfig
+        domainType: stockQtyTypeConfig
+        description: ""
+      - domainName: stockConfig
+        domainType: stockReturnConfig
+        description: ""
+      - domainName: stockConfig
+        domainType: stockUomConfig
+        description: ""
+      - domainName: stockConfig
+        domainType: stockUploadConfig
+        description: ""
+  - name: Schemes
+    severity: medium
+    entries:
+      - domainName: schemeIdentifier-3
+        domainType: Location
+        description: ""
+      - domainName: schemeIdentifier-1
+        domainType: Outlet
+        description: ""
+      - domainName: schemeIdentifier-3
+        domainType: Outlet
+        description: ""
+      - domainName: schemeIdentifier-1
+        domainType: Product
+        description: ""
+      - domainName: schemeIdentifier-3
+        domainType: Product
+        description: ""
+  - name: Target Achievement
+    severity: low
+    entries:
+      - domainName: target_achieved
+        domainType: calculation
+        description: ""
+      - domainName: Targets
+        domainType: DynamicUniqueKey
+        description: ""
+  - name: Outlet Registration
+    severity: low
+    entries:
+      - domainName: location
+        domainType: level
+        description: ""
+      - domainName: config
+        domainType: outletRegisteration
+        description: ""
+      - domainName: outlet
+        domainType: approval
+        description: ""
+  - name: Reporting
+    severity: low
+    entries:
+      - domainName: SalesDetails
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: StockHistory
+        domainType: DynamicUniqueKey
+        description: ""

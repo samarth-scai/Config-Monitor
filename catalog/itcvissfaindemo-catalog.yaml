@@ -1,0 +1,391 @@
+features:
+  - name: Order Placement
+    severity: critical
+    entries:
+      - domainName: orderAmountCompare
+        domainType: orderAmountCompare
+        description: ""
+      - domainName: OrderDeliverNotification
+        domainType: OrderDeliverNotification
+        description: ""
+      - domainName: Order
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: orderNotification
+        domainType: orderNotification
+        description: ""
+      - domainName: order
+        domainType: postOrderProcessing
+        description: ""
+      - domainName: supportedValues
+        domainType: Order-status
+        description: ""
+      - domainName: OrderValidation
+        domainType: MinMax
+        description: ""
+      - domainName: orderget
+        domainType: v2
+        description: ""
+      - domainName: OrderDetails
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: supportedValues
+        domainType: OrderDetails-Status
+        description: ""
+  - name: DMS Invoice / Sales Sync
+    severity: critical
+    entries:
+      - domainName: Sales
+        domainType: DynamicUniqueKey
+        description: ""
+  - name: DMS Portal Configuration
+    severity: high
+    entries:
+      - domainName: uiconfig
+        domainType: fss
+        description: ""
+      - domainName: clientconfig
+        domainType: global_filter_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: portal_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: recommendation_tag_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: reportadmin_portal_layout_configuration
+        description: ""
+      - domainName: templates
+        domainType: card45
+        description: ""
+      - domainName: clientconfig
+        domainType: service_expiry_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: psr_kpi_v2_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: stockist_pjp_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: kpi_configuration
+        description: ""
+      - domainName: templates
+        domainType: card34
+        description: ""
+      - domainName: clientconfig
+        domainType: business_analyst_portal_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: psr_must_do_action_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: pjp_configuration
+        description: ""
+      - domainName: DeliveryPJP
+        domainType: queryConfig
+        description: ""
+      - domainName: clientconfig
+        domainType: tpa_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: psr_kpi_configuration
+        description: ""
+      - domainName: templates
+        domainType: unsyncedOrdersAutomailer
+        description: ""
+      - domainName: clientconfig
+        domainType: analytics_config
+        description: ""
+      - domainName: templates
+        domainType: card46
+        description: ""
+      - domainName: uiconfig
+        domainType: psr
+        description: ""
+      - domainName: clientconfig
+        domainType: tpa_portal_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: authservice_configuration
+        description: ""
+      - domainName: templates
+        domainType: responseText2
+        description: ""
+      - domainName: clientconfig
+        domainType: psr_specific_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: stockist_kpi_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: reportadmin_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: tester_portal_layout_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: stockist_must_do_action_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: config
+        description: ""
+      - domainName: clientconfig
+        domainType: beta_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: playground_config
+        description: ""
+      - domainName: templates
+        domainType: default-user-notification-template
+        description: ""
+      - domainName: clientconfig
+        domainType: support_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: tester_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: business_analyst_portal_feature_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: psr_pjp_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: error_logger_configuration
+        description: ""
+      - domainName: clientconfig
+        domainType: support_portal_layout_configuration
+        description: ""
+      - domainName: templates
+        domainType: facebook
+        description: ""
+      - domainName: filters
+        domainType: tab
+        description: ""
+      - domainName: templates
+        domainType: firebase-all-retailers-outlet-detailed-english
+        description: ""
+      - domainName: templates
+        domainType: firebase-not-ordered-users
+        description: ""
+      - domainName: clientconfig
+        domainType: intentConfig
+        description: ""
+      - domainName: templates
+        domainType: pjpWindowOpens
+        description: ""
+      - domainName: RouteInfo
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: uiconfig
+        domainType: admin
+        description: ""
+      - domainName: uiconfig
+        domainType: deleteUserByEntityLevel
+        description: ""
+      - domainName: templates
+        domainType: welcome
+        description: ""
+  - name: Authentication
+    severity: high
+    entries:
+      - domainName: otpverify
+        domainType: update_access_configuration
+        description: ""
+      - domainName: password
+        domainType: passwordComplexity
+        description: ""
+      - domainName: client
+        domainType: properties
+        description: ""
+      - domainName: security
+        domainType: authentication
+        description: ""
+      - domainName: security
+        domainType: attributePermissions
+        description: ""
+      - domainName: jwtTokenValidation
+        domainType: lastPasswordResetDate
+        description: ""
+      - domainName: ResourceAccessToken
+        domainType: ExpireInMilliSeconds
+        description: ""
+      - domainName: password
+        domainType: user
+        description: ""
+  - name: Catalogue
+    severity: medium
+    entries:
+      - domainName: catalogue
+        domainType: outlet
+        description: ""
+      - domainName: catalogue
+        domainType: user
+        description: ""
+      - domainName: ProductMetaData
+        domainType: CatalogueQuery
+        description: ""
+      - domainName: productdetails
+        domainType: upload
+        description: ""
+      - domainName: ProductMetaData
+        domainType: DynamicUniqueKey
+        description: ""
+  - name: Stock Management
+    severity: medium
+    entries:
+      - domainName: batchcodekeys
+        domainType: product
+        description: ""
+      - domainName: Stock
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: splitkeys
+        domainType: splitkeysoptions
+        description: ""
+  - name: Business Calendar
+    severity: low
+    entries:
+      - domainName: CalendarMapping
+        domainType: DynamicUniqueKey
+        description: ""
+  - name: Target Achievement
+    severity: low
+    entries:
+      - domainName: target_achieved
+        domainType: calculation
+        description: ""
+      - domainName: TargetResults
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: Targets
+        domainType: DynamicUniqueKey
+        description: ""
+  - name: Outlet Registration
+    severity: low
+    entries:
+      - domainName: location
+        domainType: level
+        description: ""
+      - domainName: config
+        domainType: outletRegisteration
+        description: ""
+  - name: Reporting
+    severity: low
+    entries:
+      - domainName: SalesDetails
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: StockHistory
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: vistaarImageForReport
+        domainType: imageConfig
+        description: ""
+  - name: Uncategorized
+    severity: medium
+    entries:
+      - domainName: sso
+        domainType: config
+        description: ""
+      - domainName: applink
+        domainType: outlettokenquery
+        description: ""
+      - domainName: ApprovalInfo
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: ApprovalMetaData
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: awsTranslation
+        domainType: languageCodes
+        description: ""
+      - domainName: default_filter
+        domainType: catalogue
+        description: ""
+      - domainName: monthlyPjpConfig
+        domainType: dateConfig
+        description: ""
+      - domainName: discount
+        domainType: applicable
+        description: ""
+      - domainName: discount
+        domainType: upload
+        description: ""
+      - domainName: entity
+        domainType: sequenceConfig
+        description: ""
+      - domainName: FocusProductActivity
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: image
+        domainType: notification
+        description: ""
+      - domainName: integrationStatusQuery
+        domainType: findByTime
+        description: ""
+      - domainName: listener-config
+        domainType: listener-cdms
+        description: ""
+      - domainName: listener-config
+        domainType: listener-class-info
+        description: ""
+      - domainName: ScoreDetails
+        domainType: LoyaltyConfig
+        description: ""
+      - domainName: offers
+        domainType: upload
+        description: ""
+      - domainName: stock-deduction-enable
+        domainType: order
+        description: ""
+      - domainName: Outlet
+        domainType: Notification
+        description: ""
+      - domainName: sequenceGenerator
+        domainType: outletDetails
+        description: ""
+      - domainName: outletdetails
+        domainType: customquery
+        description: ""
+      - domainName: PostAggregateUserActivityDaily
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: PJPVisitPlan
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: PostAggregateOutlet
+        domainType: PostAggregateOutlet
+        description: ""
+      - domainName: PostAggregateUser
+        domainType: PostAggregateUser
+        description: ""
+      - domainName: productmetadata
+        domainType: upload
+        description: ""
+      - domainName: RangeProgram
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: registration
+        domainType: registration
+        description: ""
+      - domainName: stock-deduction-enable
+        domainType: sale
+        description: ""
+      - domainName: SecondaryProduct
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: TranslationInfo
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: user
+        domainType: hierarchy
+        description: ""
+      - domainName: UserActivity
+        domainType: DynamicUniqueKey
+        description: ""
+      - domainName: UserEvent
+        domainType: DynamicUniqueKey
+        description: ""
