@@ -27,9 +27,6 @@ export const api = {
   applyFix: (envId: string, lobId: string, payload: { domainName: string; domainType: string; domainValues: unknown }) =>
     client.post(`/metadata/${envId}/${lobId}/apply`, payload).then(r => r.data),
 
-  syncCatalog: (dryRun = false): Promise<{ added: number; total: number; newEntries: unknown[] }> =>
-    client.post(`/catalog/sync${dryRun ? '?dry=true' : ''}`).then(r => r.data),
-
   getSnapshot: (): Promise<{ exists: boolean; entries: number }> =>
     client.get('/catalog/snapshot').then(r => r.data),
 

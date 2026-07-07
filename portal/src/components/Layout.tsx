@@ -13,7 +13,6 @@ import DialogActions from '@mui/material/DialogActions';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import Chip from '@mui/material/Chip';
-import SyncIcon from '@mui/icons-material/Sync';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import { Link, useLocation } from 'react-router-dom';
@@ -24,101 +23,6 @@ const NAV = [
   { label: 'LOB Detail', path: '/lob' },
   { label: 'Cross-LOB Diff', path: '/diff' },
 ];
-
-function SyncDialog({ onClose }: { onClose: () => void }) {
-  const [status, setStatus] = useState<'idle' | 'running' | 'done' | 'error'>('idle');
-  const [result, setResult] = useState<{ added: number; total: number; newEntries: unknown[] } | null>(null);
-  const [error, setError] = useState('');
-
-  const run = async (dryRun: boolean) => {
-    setStatus('running');
-    setError('');
-    setResult(null);
-    try {
-      const res = await api.syncCatalog(dryRun);
-      setResult(res);
-      setStatus('done');
-    } catch (e: unknown) {
-      const err = e as { response?: { data?: { error?: string } }; message?: string };
-      setError(err?.response?.data?.error || err?.message || 'Unknown error');
-      setStatus('error');
-    }
-  };
-
-  return (
-    <Dialog open onClose={onClose} maxWidth="sm" fullWidth PaperProps={{ sx: { borderRadius: 2 } }}>
-      <DialogTitle>
-        Sync Catalog from Channelkart Source
-        <Typography variant="body2" color="text.secondary" mt={0.5}>
-          Scans all <code>fetchByValue()</code> call sites in the Java source and adds any
-          (domainName, domainType) pairs not yet in the catalog.
-        </Typography>
-      </DialogTitle>
-
-      <DialogContent dividers>
-        {status === 'idle' && (
-          <Alert severity="info">
-            The catalog currently contains manually curated entries. This scan will auto-discover
-            additional entries from the source code and append them. Run <strong>Dry Run</strong> first
-            to preview without writing.
-          </Alert>
-        )}
-
-        {status === 'running' && (
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, py: 2 }}>
-            <CircularProgress size={24} />
-            <Typography>Scanning channelkart source...</Typography>
-          </Box>
-        )}
-
-        {status === 'done' && result && (
-          <Box>
-            <Box sx={{ display: 'flex', gap: 2, mb: 2, flexWrap: 'wrap' }}>
-              <Chip label={`${result.total} pairs found in source`} />
-              <Chip
-                label={`${result.added} new entries ${result.added > 0 ? 'added to catalog' : '(catalog up to date)'}`}
-                color={result.added > 0 ? 'success' : 'default'}
-              />
-            </Box>
-            {result.added === 0 && (
-              <Alert severity="success">Catalog is already up to date — no new entries found.</Alert>
-            )}
-            {result.added > 0 && (
-              <Alert severity="success">
-                {result.added} new entries added to <code>catalog/metadata-catalog.yaml</code>.
-                Reload the page to see updated health checks.
-              </Alert>
-            )}
-          </Box>
-        )}
-
-        {status === 'error' && (
-          <Alert severity="error">{error}</Alert>
-        )}
-      </DialogContent>
-
-      <DialogActions>
-        <Button onClick={onClose}>Close</Button>
-        <Button
-          variant="outlined"
-          onClick={() => run(true)}
-          disabled={status === 'running'}
-          startIcon={status === 'running' ? <CircularProgress size={14} /> : undefined}
-        >
-          Dry Run (preview)
-        </Button>
-        <Button
-          variant="contained"
-          onClick={() => run(false)}
-          disabled={status === 'running'}
-          startIcon={status === 'running' ? <CircularProgress size={14} /> : undefined}
-        >
-          Sync Catalog
-        </Button>
-      </DialogActions>
-    </Dialog>
-  );
-}
 
 function SnapshotDialog({ onClose }: { onClose: () => void }) {
   const [status, setStatus] = useState<'idle' | 'running' | 'done' | 'error'>('idle');
@@ -181,7 +85,6 @@ function SnapshotDialog({ onClose }: { onClose: () => void }) {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  const [syncOpen, setSyncOpen] = useState(false);
   const [snapOpen, setSnapOpen] = useState(false);
 
   return (
@@ -218,17 +121,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <CameraAltIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Sync catalog from channelkart source code">
-            <IconButton onClick={() => setSyncOpen(true)} sx={{ color: '#aaa', '&:hover': { color: '#fff' } }}>
-              <SyncIcon />
-            </IconButton>
-          </Tooltip>
         </Toolbar>
       </AppBar>
 
       <Box sx={{ p: 3 }}>{children}</Box>
 
-      {syncOpen && <SyncDialog onClose={() => setSyncOpen(false)} />}
       {snapOpen && <SnapshotDialog onClose={() => setSnapOpen(false)} />}
     </Box>
   );

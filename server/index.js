@@ -47,18 +47,6 @@ app.get('/api/catalog/snapshot', (req, res) => {
   res.json({ exists: svc.hasSnapshot(lobId), entries: Object.keys(svc.loadSnapshot(lobId)).length, path: svc.snapshotPath(lobId) });
 });
 
-app.post('/api/catalog/sync', async (req, res) => {
-  try {
-    const { syncCatalog } = require('../scripts/sync-catalog');
-    const dryRun = req.query.dry === 'true';
-    const result = await syncCatalog({ dryRun });
-    catalogService.reloadCatalog();
-    res.json(result);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
 app.patch('/api/catalog/snapshot/entry', (req, res) => {
   try {
     const { lobId, domainName, domainType, value } = req.body || {};
