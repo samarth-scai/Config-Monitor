@@ -19,6 +19,11 @@ import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import { api } from '../services/api';
 import { StatusChip } from '../components/StatusChip';
 import { DomainNameCard } from '../components/DomainNameCard';
@@ -34,6 +39,7 @@ export function LobDetail() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [dbErrorDismissed, setDbErrorDismissed] = useState(false);
   const focusFeature = params.get('feature');
 
   useEffect(() => {
@@ -49,6 +55,7 @@ export function LobDetail() {
     if (!selectedEnv || !selectedLob) return;
     setLoading(true);
     setError('');
+    setDbErrorDismissed(false);
     try {
       const res = await api.checkLob(selectedEnv, selectedLob);
       setResult(res);
@@ -56,6 +63,7 @@ export function LobDetail() {
     } catch (e: unknown) {
       const err = e as { message?: string };
       setError(err?.message || 'Unknown error');
+      setResult(null);
     } finally {
       setLoading(false);
     }
@@ -65,9 +73,11 @@ export function LobDetail() {
     if (selectedEnv && selectedLob) runCheck();
   }, [selectedEnv, selectedLob]);
 
+  const isUnreachable = result?.status === 'unreachable';
+
   // Flatten all entries across features and group by domain_name
   const domainGroups: Map<string, MetadataEntry[]> = new Map();
-  if (result) {
+  if (result && !isUnreachable) {
     for (const feature of result.features) {
       for (const entry of feature.entries) {
         if (!domainGroups.has(entry.domainName)) domainGroups.set(entry.domainName, []);
@@ -127,7 +137,14 @@ export function LobDetail() {
         </Box>
       )}
 
-      {result && !loading && (
+      {result && !loading && isUnreachable && (
+        <Alert severity="error" sx={{ mb: 2 }}>
+          <strong>Database not connected</strong> — could not reach {result.lobId} ({result.envId.toUpperCase()}).
+          {result.error ? ` ${result.error}` : ''}
+        </Alert>
+      )}
+
+      {result && !loading && !isUnreachable && (
         <>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3, p: 2, bgcolor: '#fff', borderRadius: 2, border: '1px solid #e0e0e0' }}>
             <Box>
@@ -201,6 +218,22 @@ export function LobDetail() {
           ))}
         </>
       )}
+
+      <Dialog open={isUnreachable && !dbErrorDismissed} onClose={() => setDbErrorDismissed(true)} maxWidth="xs" fullWidth>
+        <DialogTitle sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <ErrorOutlineIcon color="error" /> Database Not Connected
+        </DialogTitle>
+        <DialogContent>
+          <Typography variant="body2" color="text.secondary" mb={1.5}>
+            Could not reach the database for <strong>{result?.lobId}</strong> ({result?.envId?.toUpperCase()}).
+          </Typography>
+          {result?.error && <Alert severity="error">{result.error}</Alert>}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setDbErrorDismissed(true)}>Close</Button>
+          <Button variant="contained" onClick={() => { setDbErrorDismissed(true); runCheck(); }}>Retry</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }
